@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farm2Home - 3D Edition</title>
+
+  <!-- 🧩 PWA Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- 🌈 Theme Colors -->
+  <meta name="theme-color" content="#00ff99" />
+
+  <!-- 🧠 Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker Registered ✅'))
+        .catch(err => console.log('Service Worker Error ❌', err));
+    }
+  </script>
+
+  <!-- 🎨 Styles and Libraries -->
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+</head>
+
+<body>
+  <!-- 🌍 Splash Screen -->
+  <div class="splash">
+    <div id="globe-container"></div>
+    <h1 class="title">🌾 Farm2Home 🌍</h1>
+    <p class="subtitle">Made by <b>Hemanth Sai Reddy</b><br>for Viksit Bharat Buildathon 2025</p>
+  </div>
+
+  <!-- 🧩 Main App -->
+  <div class="main hidden">
+    <div class="top-section">
+      <h2 class="heading">Find Local Farmers</h2>
+
+      <!-- Crops Display -->
+      <div class="crop-display">
+        <div class="crop-card">🌾 Rice</div>
+        <div class="crop-card">🌿 Wheat</div>
+        <div class="crop-card">🌽 Maize</div>
+        <div class="crop-card">🌷 Cotton</div>
+        <div class="crop-card">🌶️ Chilli</div>
+        <div class="crop-card">🥔 Potato</div>
+        <div class="crop-card">🍅 Tomato</div>
+      </div>
+
+      <!-- Search Bar -->
+      <div class="search-bar">
+        <input type="text" id="cropInput" placeholder="Enter Crop Name" />
+        <button id="searchCrop">Search</button>
+      </div>
+
+      <!-- About Section -->
+      <div class="info">
+        <p>Farm2Home is an innovative platform connecting local farmers directly with consumers.</p>
+        <p>It helps farmers sell their crops at fair prices without middlemen.</p>
+        <p>Consumers can find fresh, locally grown produce easily.</p>
+        <p>The platform promotes sustainable and eco-friendly agriculture.</p>
+        <p>Farm2Home provides real-time crop availability and pricing details.</p>
+        <p>Users can search for crops and find farmers near their location.</p>
+        <p>It encourages small-scale farmers to increase their income.</p>
+        <p>The app integrates 3D visuals and interactive UI for a modern experience.</p>
+        <p>It is part of the Viksit Bharat Buildathon 2025 initiative.</p>
+        <p>Farm2Home empowers both farmers and consumers, building a stronger agricultural ecosystem.</p>
+      </div>
+
+      <!-- Location Input -->
+      <div class="location hidden">
+        <input type="text" id="locationInput" placeholder="Enter Your Location" />
+        <button id="findFarmers">Find Farmers</button>
+      </div>
+    </div>
+
+    <!-- Results -->
+    <div id="results"></div>
+  </div>
+
+  <!-- App Script -->
+  <script src="app.js"></script>
+</body>
+</html>
