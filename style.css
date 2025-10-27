@@ -1,0 +1,175 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #000;
+  color: white;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Splash Screen */
+.splash {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+}
+
+.title {
+  font-size: 3rem;
+  background: linear-gradient(90deg, #00ffcc, #ff00cc);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: glow 3s infinite alternate;
+}
+
+.subtitle {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ddd;
+}
+
+/* Main App */
+.main {
+  padding-top: 20px;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+/* Top section with search + info */
+.top-section {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* Heading */
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #00ffcc;
+}
+
+/* Crop cards */
+.crop-display {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.crop-card {
+  background: rgba(255,255,255,0.1);
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+  transition: transform 0.5s, box-shadow 0.5s;
+  font-weight: 500;
+  cursor: pointer;
+  width: 140px;
+}
+
+.crop-card:hover {
+  transform: scale(1.05) rotateY(8deg);
+  box-shadow: 0 0 25px rgba(0,255,255,0.5);
+}
+
+/* Search bar */
+.search-bar {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+input, button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+button {
+  background: linear-gradient(90deg, #00ffcc, #ff00cc);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+/* Hidden class */
+.hidden {
+  display: none;
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px #0cf72b; }
+  to { text-shadow: 0 0 30px #0bc0ed; }
+}
+
+/* Info section styling */
+.info {
+  margin: 15px auto;
+  padding: 15px 25px;
+  background: rgba(255,255,255,0.05);
+  border-left: 4px solid #00ffcc;
+  border-radius: 8px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+  max-width: 700px;
+  text-align: left;
+}
+
+/* Results section */
+#results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 10px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Each farmer card as nice box */
+.farmer-card {
+  background: rgba(0,255,255,0.1);
+  padding: 15px 20px;
+  border-radius: 15px;
+  width: 220px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.farmer-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0,255,255,0.6);
+}
+
+.farmer-card button {
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 8px;
+  font-weight: bold;
+}
