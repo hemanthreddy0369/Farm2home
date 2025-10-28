@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Farm2Home - 3D Edition</title>
 
-  <!-- 🧩 PWA Manifest -->
+  <!-- PWA Manifest -->
   <link rel="manifest" href="manifest.json">
 
-  <!-- 🌈 Theme Colors -->
+  <!-- Theme & icons (keep these links) -->
   <meta name="theme-color" content="#00ff99" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512x512.png">
+  <link rel="apple-touch-icon" href="icon-512x512.png">
 
-  <!-- 🧠 Service Worker Registration -->
+  <!-- Service Worker Registration (kept as you requested) -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js')
@@ -20,27 +23,27 @@
     }
   </script>
 
-  <!-- 🎨 Styles and Libraries -->
+  <!-- Styles & libraries -->
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 </head>
 
 <body>
-  <!-- 🌍 Splash Screen -->
+  <!-- Splash Screen (globe + title) -->
   <div class="splash">
-    <div id="globe-container"></div>
+    <div id="globe-container" aria-hidden="true"></div>
     <h1 class="title">🌾 Farm2Home 🌍</h1>
     <p class="subtitle">Made by <b>Hemanth Sai Reddy</b><br>for Viksit Bharat Buildathon 2025</p>
   </div>
 
-  <!-- 🧩 Main App -->
-  <div class="main hidden">
+  <!-- Main App (hidden until splash finishes) -->
+  <div class="main hidden" role="main">
     <div class="top-section">
       <h2 class="heading">Find Local Farmers</h2>
 
-      <!-- Crops Display -->
-      <div class="crop-display">
+      <!-- Crops Display (visual only) -->
+      <div class="crop-display" aria-hidden="true">
         <div class="crop-card">🌾 Rice</div>
         <div class="crop-card">🌿 Wheat</div>
         <div class="crop-card">🌽 Maize</div>
@@ -50,10 +53,10 @@
         <div class="crop-card">🍅 Tomato</div>
       </div>
 
-      <!-- Search Bar -->
+      <!-- Search area -->
       <div class="search-bar">
-        <input type="text" id="cropInput" placeholder="Enter Crop Name" />
-        <button id="searchCrop">Search</button>
+        <input type="text" id="cropInput" placeholder="Enter Crop Name (e.g., rice, wheat)" autocomplete="off" />
+        <button id="searchCrop" type="button">Search</button>
       </div>
 
       <!-- About Section -->
@@ -70,18 +73,18 @@
         <p>Farm2Home empowers both farmers and consumers, building a stronger agricultural ecosystem.</p>
       </div>
 
-      <!-- Location Input -->
+      <!-- Location Input (hidden until crop is searched) -->
       <div class="location hidden">
-        <input type="text" id="locationInput" placeholder="Enter Your Location" />
-        <button id="findFarmers">Find Farmers</button>
+        <input type="text" id="locationInput" placeholder="Enter Your Location (e.g., Ongole, Guntur)" autocomplete="off" />
+        <button id="findFarmers" type="button">Find Farmers</button>
       </div>
     </div>
 
-    <!-- Results -->
-    <div id="results"></div>
+    <!-- Results container (filled by app.js) -->
+    <div id="results" aria-live="polite"></div>
   </div>
 
-  <!-- App Script -->
+  <!-- App script (must be last so DOM elements exist) -->
   <script src="app.js"></script>
 </body>
 </html>
