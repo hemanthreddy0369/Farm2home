@@ -110,6 +110,7 @@ button {
 
 button:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 20px #00ffcc;
 }
 
 /* Hidden class */
@@ -149,17 +150,18 @@ button:hover {
   margin-right: auto;
 }
 
-/* Each farmer card as nice box */
+/* Each farmer card */
 .farmer-card {
-  background: rgba(0,255,255,0.1);
+  background: rgba(0,255,255,0.08);
   padding: 15px 20px;
   border-radius: 15px;
-  width: 220px;
+  width: 250px;
   box-shadow: 0 0 20px rgba(0,255,255,0.3);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
+  text-align: left;
 }
 
 .farmer-card:hover {
@@ -167,9 +169,40 @@ button:hover {
   box-shadow: 0 0 30px rgba(0,255,255,0.6);
 }
 
-.farmer-card button {
-  margin-top: 10px;
-  border-radius: 20px;
-  padding: 8px;
+/* Farmer details */
+.farmer-card h3 {
+  color: #00ffcc;
+  font-size: 1.3rem;
+}
+
+.farmer-card p {
+  font-size: 0.95rem;
+  color: #ddd;
+}
+
+/* Neon price tag */
+.price {
+  font-size: 1.1rem;
   font-weight: bold;
+  color: #00ff99;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+/* Find on Map button (same as Find Farmers button) */
+.map-btn {
+  background: linear-gradient(90deg, #00ffcc, #ff00cc);
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  padding: 10px 15px;
+  margin-top: 10px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.map-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #00ffcc;
 }
